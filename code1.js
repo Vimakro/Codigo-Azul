@@ -1,6 +1,9 @@
 document.addEventListener('DOMContentLoaded', function() {
 
+let nuevanoti = [];
+
 primeraPestaña();
+
     
 function primeraPestaña () {
     const back2 = document.querySelector('.back-2-1');
@@ -86,12 +89,22 @@ function primeraPestaña () {
         ,['Emergencia', 'Piso 2', '19:01:46', 'Por atender', 'Cama', 'Esperando']
         ,['Normal', 'Piso 2', '19:01:46', 'Atendido', 'Cama', '19:01:46']
         ,['Emergencia', 'Piso 2', '19:01:46', 'Atendido', 'Cama', '19:01:46']
-        ,['Azul', 'Piso 2', '19:01:46', 'Atendido', 'Cama', '20:01:46']
+        ,['Azul', 'Piso 2', '19:01:50', 'Atendido', 'Cama', '20:01:46']
     ];
 
-    Notificaciones.forEach(notificacion => {
-        agregarNotificacion(notificacion[0], notificacion[1], notificacion[2], notificacion[3], notificacion[4], notificacion[5]);
-    });
+    if (nuevanoti.length>0) {
+        console.log(nuevanoti);
+        Notificaciones.unshift(nuevanoti);
+        nuevanoti = [];
+        console.log(Notificaciones);
+    }
+    
+    
+    if (nuevanoti.length===0) {
+        Notificaciones.forEach(notificacion => {
+            agregarNotificacion(notificacion[0], notificacion[1], notificacion[2], notificacion[3], notificacion[4], notificacion[5]);
+        });
+    }
 }
 
 function segundaPestaña () {
@@ -109,7 +122,7 @@ function segundaPestaña () {
     btnNormal.style.fontWeight = "bold";
     btnNormal.classList.add("btnAsistencia");
     btnNormal.addEventListener("click", function(event) {
-        cuartaPestaña("#D9D9D9", "black");
+        cuartaPestaña("#D9D9D9", "black", "Normal");
         event.preventDefault();
     });
 
@@ -118,7 +131,7 @@ function segundaPestaña () {
     btnCodigAzul.textContent = "Codigo Azul";
     btnCodigAzul.classList.add("btnAsistencia");
     btnCodigAzul.addEventListener("click", function(event) {
-        cuartaPestaña("#2A26EA", "white");
+        cuartaPestaña("#2A26EA", "white", "Azul");
         event.preventDefault();
     });
 
@@ -127,7 +140,7 @@ function segundaPestaña () {
     btnEmergencia.textContent = "Emergencia";
     btnEmergencia.classList.add("btnAsistencia");
     btnEmergencia.addEventListener("click", function(event) {
-        cuartaPestaña("#FF0000", "white");
+        cuartaPestaña("#FF0000", "white", "Emergencia");
         event.preventDefault();
     });
 
@@ -247,15 +260,15 @@ function tercerPestaña () {
     });
 }
 
-function cuartaPestaña (color, letra) {
+function cuartaPestaña (color, letra, tipo) {
     const back2 = document.querySelector('.back-2-1');
     back2.innerHTML = '';
     back2.classList.add("centrar");
 
     const unicoDiv = document.createElement("div");
-
+    unicoDiv.classList.add("notificacionCompleta");
     const otrodiv = document.createElement("div");
-    otrodiv.classList.add("notificacion");
+    otrodiv.classList.add("notificacionTiempo");
     const divArriba = document.createElement("div");
     divArriba.classList.add("divArriba");
     const divAbajo = document.createElement("div");
@@ -292,8 +305,17 @@ function cuartaPestaña (color, letra) {
     btn.style.color = letra;
     btn.textContent = "Parar";
     btn.classList.add("btnAsistencia");
+    const botoninicio = document.getElementById("notificacion");
     btn.addEventListener("click", function() {
+        let piso = ["Piso 1", "Piso 2", "Piso 3"];
+        let pisoAleatorio = piso[Math.floor(Math.random() * piso.length)];
+        nuevanoti = [tipo, pisoAleatorio, valorInicial.innerText, "Atendido", "Cama", valortiempoReal.innerText];
+        
         clearInterval(timeReal);
+        setTimeout(() => {
+            botoninicio.click();
+        }, 2000);
+        return nuevanoti;
     });
 
     unicoDiv.appendChild(otrodiv);
