@@ -1,0 +1,9 @@
+{
+  "type": "commonjs",
+  "dependencies": {
+    "mysql": "^2.18.1"
+  },
+  "devDependencies": {
+    "webpack-cli": "^5.1.4"
+  }
+}

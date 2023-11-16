@@ -1,0 +1,118 @@
+.imagenPortada {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+h1{
+    color: #000;
+    text-align: center;
+    font-family: 'Crimson Pro', serif;
+    font-size: 50px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-shadow: 2px 2px 4px #929292;
+}
+
+body {padding: 0;}
+
+.back-0-0 {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.back-1-0 {flex: 1.2;}
+
+.back-2-0 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 0.7;
+    justify-content: space-around; 
+}
+
+.firstDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 50px;
+}
+
+button{ 
+    width: 300px; 
+    height: 50px;
+    border: #2A26EA;
+    padding-top: 6px; 
+    padding-bottom: 6px; 
+    background: #2A26EA; 
+    border-radius: 20px; 
+    justify-content: center; 
+    align-items: center; 
+    display: inline-flex;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    color: #FFF;
+    font-family: 'Inter', sans-serif;
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+input {
+    margin-bottom: 10px;
+    width: 290px; 
+    height: 40px;
+    display: flex;
+    align-items: center;
+    border-radius: 20px;
+    border: 2px solid #767676;
+    background: rgba(209, 209, 209, 0.25);
+    font-size: 17px;
+    font-family: 'Inter', sans-serif;;
+    font-weight: 400;
+    letter-spacing: 0.40px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    word-wrap: break-word;
+    padding-left: 10px;
+}
+
+::placeholder {
+    color: rgb(58, 58, 58);
+    opacity: 0.4; 
+}
+
+
+p1{
+    color: var(--Unfocus, #4A4A4A);
+    text-align: center;
+    font-family: Inter;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.container{
+    margin:auto;
+    margin-bottom: -20px;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-gap: 5px;
+    align-items: center;
+}
+
+footer {
+    margin: 35px;
+    color: #959595;
+    text-align: center;
+    font-family: 'Inter', sans-serif;;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+
+
