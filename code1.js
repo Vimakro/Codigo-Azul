@@ -93,10 +93,8 @@ function primeraPestaña () {
     ];
 
     if (nuevanoti.length>0) {
-        console.log(nuevanoti);
         Notificaciones.unshift(nuevanoti);
         nuevanoti = [];
-        console.log(Notificaciones);
     }
     
     
@@ -292,7 +290,7 @@ function cuartaPestaña (color, letra, tipo) {
             primeraVez = false;
         }
         valortiempoReal.textContent = `${horas}:${minutos}:${segundos}`
-    }, 1000);
+    }, 10);
 
     divArriba.appendChild(valortiempoReal);
     divAbajo.appendChild(valorInicial);
